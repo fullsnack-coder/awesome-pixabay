@@ -6,6 +6,8 @@ function Layout(props){
         <div>
             <Head>
                 <title>{props.title}</title>
+                <meta name="viewport" content="width=device-width, user-scalable=no"/>
+                <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet"/>
             </Head>
             {props.children}
             <Footer/>
