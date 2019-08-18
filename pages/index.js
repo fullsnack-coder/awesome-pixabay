@@ -1,9 +1,9 @@
 import React from 'react';
-import 'isomorphic-fetch';
 import Error from 'next/error';
 
 import Layout from '../components/Layout';
 import Home from '../components/Home';
+import 'isomorphic-fetch';
 
 export default class extends React.Component{
 
