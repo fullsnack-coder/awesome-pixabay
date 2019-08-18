@@ -7,7 +7,7 @@ export default class QueryNotFound extends React.Component{
                     src='https://i.imgur.com/jXi8nKG.png'
                     alt='Not found image'
                 />
-                <h2>No hemos encontrado nada</h2>
+                <h2>No results found for <b>"{this.props.query}"</b></h2>
                 <style jsx>{`
                     .Not-Found{
                         display: flex;
@@ -17,6 +17,9 @@ export default class QueryNotFound extends React.Component{
                         font-family: 'Lexend Deca', sans-serif;
                         color: #777777;
                         padding: 12px;
+                    }
+                    .Not-Found h2 b{
+                        color: #EFA97D;
                     }
                     .nf__icon{
                         max-width: 120px;

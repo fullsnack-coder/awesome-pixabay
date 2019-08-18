@@ -19,6 +19,11 @@ export default class extends React.Component{
                     images={this.props.images}
                     active={this.props.active}
                     loading={this.props.loading}
+                    page={this.props.page}
+                    pages={this.props.pages}
+                    handleNextPage={this.props.handleNextPage}
+                    handlePrevPage={this.props.handlePrevPage}
+                    query={this.props.query}
                 />
                 <style jsx>{`
                     .Home{

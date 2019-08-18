@@ -1,7 +1,7 @@
 export default function Footer(){
     return(
         <div className='Footer'>
-            <p>ManuelDEV - Con la tecnolog&iacute;a de </p>
+            <p>ManuelDEV - with the technology of </p>
             <figure className='Footer__img'>
                 <img
                     src='https://i.imgur.com/3Ps0ZYR.png'
