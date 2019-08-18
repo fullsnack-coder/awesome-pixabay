@@ -8,6 +8,7 @@ function Layout(props){
                 <title>{props.title}</title>
                 <meta name="viewport" content="width=device-width, user-scalable=no"/>
                 <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet"/>
+                <link rel='icon' href='./../static/favicon.ico'/>
             </Head>
             {props.children}
             <Footer/>

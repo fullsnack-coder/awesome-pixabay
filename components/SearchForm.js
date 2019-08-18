@@ -1,14 +1,22 @@
 
 export default class SearchForm extends React.Component{
+
+    query = React.createRef();
+
+    handleSubmit = (e) =>{
+        e.preventDefault();
+        this.props.searchData(this.query.current.value);
+    }
+
     render(){
         return(
-            <form className='Form'>
+            <form className='Form' onSubmit={this.handleSubmit}>
                 <input
                     type='text'
                     placeholder='Search your images ...'
-                    
+                    ref={this.query}
                 />
-                <button className='btn-search' type='button'>
+                <button className='btn-search' type='submit'>
                     <img
                         src='https://i.imgur.com/Bwc7Tk3.png'
                     />
@@ -33,6 +41,7 @@ export default class SearchForm extends React.Component{
                         outline: none;
                         background-color: transparent;
                         font-family: 'Lexend Deca', sans-serif;
+                        width: 70%;
                     }
                     .Form .btn-search{
                         font-family: 'Lexend Deca', sans-serif;
@@ -49,13 +58,21 @@ export default class SearchForm extends React.Component{
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        transition: all ease .3s;
+                    }
+                    .Form .btn-search:hover{
+                        background-color: #000;
+                        min-width: 160px;
+                    }
+                    .Form .btn-search:hover .btn-text{
+                        display: inline-block;
                     }
                     .btn-search img{
                         height: 15px;
                         margin-right: 6px;
                     }
 
-                    @media screen and (max-width: 450px){
+                    @media screen and (max-width: 470px){
                         .Form .btn-search{
                             background-color: #000;
                             color: white;
@@ -76,6 +93,13 @@ export default class SearchForm extends React.Component{
                             width: 65%;
                         }
                         .btn-text{
+                            display: none;
+                        }
+                        .Form .btn-search:hover{
+                            background-color: #000;
+                            min-width: 60px;
+                        }
+                        .Form .btn-search:hover .btn-text{
                             display: none;
                         }
                     }
