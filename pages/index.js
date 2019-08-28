@@ -17,8 +17,32 @@ export default class extends React.Component{
             page : null,
             pages : null,
             query : null,
+            modal: {
+                active: false,
+                info: null
+            }
         }
     }
+
+    activeModal = (state, info) =>{
+        const modalState = state;
+        this.setState({
+            modal : {
+                active: modalState,
+                info
+            }
+        })
+    }
+    
+    desactiveModal = (state) =>{
+        const modalState = state;
+        this.setState({
+            modal : {
+                active: modalState
+            }
+        })
+    }
+
 
     consultAPI = () =>{
         try {
@@ -98,31 +122,34 @@ export default class extends React.Component{
     }
 
     render(){
-        const {error, loading} = this.state;
+        const {error, loading, modal} = this.state;
         if(error){
             return <Error statusCode={error}/>
         }
 
-        return(
-            <Layout title='Awesome PIXA'>
-                <Home
-                    active={this.state.active}
-                    searchData={this.searchData}
-                    images={this.state.data}
-                    page={this.state.page}
-                    pages={this.state.pages}
-                    query={this.state.query}
-                    loading={loading}
-                    handleActive={this.handleActive}
-                    handleNextPage={this.handleNextPage}
-                    handlePrevPage={this.handlePrevPage}
-                />
-                <style jsx>{`
-                    :global(body){
-                        background-color: #F7F7F7;
-                    }
-                `}</style>
-            </Layout>
-        )
+        return (
+          <Layout title="Awesome PIXA">
+            <Home
+              active={this.state.active}
+              searchData={this.searchData}
+              images={this.state.data}
+              page={this.state.page}
+              pages={this.state.pages}
+              query={this.state.query}
+              loading={loading}
+              handleActive={this.handleActive}
+              handleNextPage={this.handleNextPage}
+              handlePrevPage={this.handlePrevPage}
+              activeModal={this.activeModal}
+              desactiveModal={this.desactiveModal}
+              modal={this.state.modal}
+            />
+            <style jsx>{`
+              :global(body) {
+                background-color: #f7f7f7;
+              }
+            `}</style>
+          </Layout>
+        );
     }
 }

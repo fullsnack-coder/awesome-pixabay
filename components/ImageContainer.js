@@ -1,6 +1,7 @@
 import ImageItem from "./ImageItem";
 import QueryNotFound from "./QueryNotFound";
 import Loader from "./Loader";
+import Modal from "./Modal";
 
 export default class ImageContainer extends React.Component{
 
@@ -62,47 +63,59 @@ export default class ImageContainer extends React.Component{
 
     render(){
 
-        const {active, images, loading, query} = this.props;
+        const {
+          active,
+          images,
+          loading,
+          query,
+          activeModal,
+          modal,
+          desactiveModal
+        } = this.props;
 
         if(active && images.length==0 && loading==false)
             return <QueryNotFound query={query}/>
         if(loading)
             return <Loader/>
         
-        return(
-            <React.Fragment>
-                <div className='ImageContainer'>
-                    {images.map(image =>{
-                        return <ImageItem
-                            key={image.id}
-                            image={image}
-                        />
-                    })}
-                </div>
-                <div className='Btn__container'>
-                    {this.showPrev()}
-                    {this.showNext()}
-                </div>
-                <style jsx>{`
-                        .ImageContainer{
-                            max-width: 1300px;
-                            column-count: 4;
-                            padding: 12px;
-                            margin-bottom: 12px;
-                        }
-                        
-                        @media screen and (max-width: 700px){
-                            .ImageContainer{
-                                column-count: 3;
-                            }
-                        }
-                        @media screen and (max-width: 400px){
-                            .ImageContainer{
-                                column-count: 2;
-                            }
-                        }
-                    `}</style>
-            </React.Fragment>
-        )
+        return (
+          <React.Fragment>
+            {modal.active ? <Modal info={modal} desactiveModal={desactiveModal} /> : ""}
+            <div className="ImageContainer">
+              {images.map(image => {
+                return (
+                  <ImageItem
+                    key={image.id}
+                    image={image}
+                    activeModal={activeModal}
+                  />
+                );
+              })}
+            </div>
+            <div className="Btn__container">
+              {this.showPrev()}
+              {this.showNext()}
+            </div>
+            <style jsx>{`
+              .ImageContainer {
+                max-width: 1300px;
+                column-count: 4;
+                padding: 12px;
+                margin-bottom: 12px;
+              }
+
+              @media screen and (max-width: 700px) {
+                .ImageContainer {
+                  column-count: 3;
+                }
+              }
+              @media screen and (max-width: 400px) {
+                .ImageContainer {
+                  column-count: 2;
+                }
+              }
+            `}</style>
+          </React.Fragment>
+        );
     }
 }
