@@ -51,11 +51,14 @@ export default function ImageItem(props){
             top: 5px;
             right: 5%;
             left: 5%;
-            z-index: -100;
             background-color: #706adf;
             display: flex;
             border-radius: 8px;
             justify-content: center;
+            z-index: -100;
+            opacity: 0;
+            transform: scale(0);
+            transition: all ease-out .3s;
           }
           .Item__overlay::after {
             content: "";
@@ -83,6 +86,8 @@ export default function ImageItem(props){
 
           .ImageItem:hover .Item__overlay {
             z-index: 100;
+            opacity: 1;
+            transform: scale(1);
           }
           .ImageItem:hover .Item__view {
             z-index: 100;

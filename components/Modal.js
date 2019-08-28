@@ -6,35 +6,64 @@ export default class Modal extends Component{
 
         const {info, desactiveModal} = this.props;
 
-        return(
-            <div className='Modal'>
-                <figure className='Modal_cover'>
-                    {console.log(this.props)}
-                    <img src={info.info.largeImageURL}/>
-                </figure>
-                <ImageDetails info={info} desactiveModal= {desactiveModal}/>
-                <style jsx>{`
-                    .Modal{
-                        min-height: 100vh;
-                        width: 100%;
-                        background: rgba(23, 37, 59, .5);
-                        position: fixed;
-                        top: 0;
-                        z-index: 1000;
-                        display: grid;
-                        grid-template-columns: 1fr 1fr 1fr;
-                        justify-content: center;
-                        align-content: center;
-                        padding: 20px;
-                    }
-                    .Modal_cover{
-                        grid-column: 1 / 3; 
-                    }
-                    img{
-                        max-height: 100vh;
-                    }
-                `}</style>
+        return (
+          <section className="Modal">
+            <div className="Modal_PopUp">
+              <figure className="Modal_cover">
+                {console.log(this.props)}
+                <img src={info.info.largeImageURL} />
+              </figure>
+              <ImageDetails info={info} desactiveModal={desactiveModal} />
             </div>
-        )
+            <style jsx>{`
+              .Modal {
+                width: 100%;
+                height: 100vh;
+                background: rgba(23, 37, 59, 0.5);
+                position: fixed;
+                top: 0;
+                z-index: 1000;
+                padding: 20px;
+                padding-bottom: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: "Lexend Deca", sans-serif;
+                overflow-y: auto;
+              }
+              .Modal_PopUp {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 550px;
+              }
+              .Modal_cover {
+                height: 100%;
+                width: 60%;
+                background-color: black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              img {
+                max-height: 100%;
+                display: inline-block;
+              }
+              @media screen and (max-width: 700px) {
+                .Modal {
+                  align-items: flex-start;
+                }
+                .Modal_PopUp {
+                  flex-direction: column;
+                  justify-content: center;
+                }
+                .Modal_cover {
+                  width: 100%;
+                  height: auto;
+                }
+              }
+            `}</style>
+          </section>
+        );
     }
 }
