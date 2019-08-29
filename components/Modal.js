@@ -65,6 +65,10 @@ export default class Modal extends Component{
                 .Modal_cover {
                   width: 100%;
                   height: auto;
+                  border-radius: 16px 16px 0px 0px;
+                }
+                .Modal_cover img{
+                    border-radius: 16px 16px 0px 0px;
                 }
               }
             `}</style>

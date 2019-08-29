@@ -73,7 +73,7 @@ export default class ImageDetails extends Component{
                 width: 30%;
                 position: relative;
                 min-width: 350px;
-                padding: 10px 4px 18px 4px;
+                padding: 10px 28px 18px 28px;
                 height: 100%;
               }
               .ImageDetails_section {
