@@ -6,6 +6,7 @@ export default class Modal extends Component{
 
         const {info, desactiveModal} = this.props;
 
+
         return (
           <section className="Modal">
             <div className="Modal_PopUp">
@@ -49,13 +50,17 @@ export default class Modal extends Component{
                 max-height: 100%;
                 display: inline-block;
               }
+              .Modal_cover-mobile {
+                display: none;
+              }
+
               @media screen and (max-width: 700px) {
                 .Modal {
                   align-items: flex-start;
                 }
                 .Modal_PopUp {
                   flex-direction: column;
-                  justify-content: center;
+                  justify-content: flex-start;
                 }
                 .Modal_cover {
                   width: 100%;

@@ -128,6 +128,7 @@ export default class ImageDetails extends Component{
                   margin-top: -20px;
                   border-radius: 20px 20px 8px 8px;
                   width: 100%;
+                  margin-bottom: 50px;
                 }
               }
             `}</style>
