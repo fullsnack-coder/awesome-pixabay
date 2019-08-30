@@ -1,4 +1,6 @@
 export default class QueryNotFound extends React.Component{
+
+    //This is the QueryNotFound view using the query prop passed.
     render(){
         return(
             <div className='Not-Found'>

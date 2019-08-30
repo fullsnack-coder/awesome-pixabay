@@ -1,4 +1,12 @@
 export default class Loader extends React.Component{
+
+    /**
+     * This is the loader component, his animation is used in the loading App status.
+     * Can be found more in:
+     *  https://loading.io/css/
+     */
+
+
     render(){
         return(
             <div className='container'>

@@ -3,18 +3,16 @@ import ImageDetails from './ImageDetails';
 
 export default class Modal extends Component{
     render(){
-
-        const {info, desactiveModal} = this.props;
-
+        //Logic elements.
+        const { info, modalHandler } = this.props;
 
         return (
           <section className="Modal">
             <div className="Modal_PopUp">
               <figure className="Modal_cover">
-                {console.log(this.props)}
                 <img src={info.info.largeImageURL} />
               </figure>
-              <ImageDetails info={info} desactiveModal={desactiveModal} />
+              <ImageDetails info={info} modalHandler={modalHandler} />
             </div>
             <style jsx>{`
               .Modal {
@@ -36,7 +34,7 @@ export default class Modal extends Component{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 550px;
+                height: 560px;
               }
               .Modal_cover {
                 height: 100%;
@@ -49,9 +47,6 @@ export default class Modal extends Component{
               img {
                 max-height: 100%;
                 display: inline-block;
-              }
-              .Modal_cover-mobile {
-                display: none;
               }
 
               @media screen and (max-width: 700px) {
@@ -67,8 +62,8 @@ export default class Modal extends Component{
                   height: auto;
                   border-radius: 16px 16px 0px 0px;
                 }
-                .Modal_cover img{
-                    border-radius: 16px 16px 0px 0px;
+                .Modal_cover img {
+                  border-radius: 16px 16px 0px 0px;
                 }
               }
             `}</style>
