@@ -1,9 +1,12 @@
-
+/**
+ * Form component with the fetch function in the submit method.
+ */
 export default class SearchForm extends React.Component{
 
+    //Ref to the input.
     query = React.createRef();
 
-    handleSubmit = (e) =>{
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.searchData(this.query.current.value);
     }

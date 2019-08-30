@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 export default function Button(props){
+
     return (
       <React.Fragment>
         <Link href={props.url}>
@@ -9,6 +10,7 @@ export default function Button(props){
             {props.text}
           </a>
         </Link>
+
         <style jsx>{`
           .Button {
             display: inline-block;
@@ -18,6 +20,7 @@ export default function Button(props){
             text-decoration: none;
             background-color: #c9c9c9;
             margin-right: 12px;
+            margin-bottom: 6px;
             border-radius: 6px;
           }
           .Button.success {

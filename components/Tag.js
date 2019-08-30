@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-
 export default function Tag(props){
+
+    //Little functional component to see the image tags.
     return(
         <div className='Tag'>
             {props.tag}
             <style jsx>{`
                 .Tag{
-
                     display: inline-block;
                     padding: 4px 14px;
                     border: solid 1.5px black;

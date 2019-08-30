@@ -1,3 +1,6 @@
+/**
+ *  Little functional component with the credits data.
+ */
 export default function Footer(){
     return(
         <div className='Footer'>

@@ -1,6 +1,10 @@
 import Head from 'next/head';
 import Footer from './Footer';
 
+/**
+ *  This component is the Layout container of the page, in this component are placed the SEO atributtes.
+ */
+
 function Layout(props){
     return(
         <div>

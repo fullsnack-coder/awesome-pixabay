@@ -4,21 +4,22 @@ import Button from './Button';
 
 export default class ImageDetails extends Component{
 
+    //Function to close Modal.
     closeModal = () =>{
-        this.props.desactiveModal(false);
-
+        this.props.modalHandler(false);
     }
 
     render(){
-
+        //Image properties, will be passed to the components.
         const { userImageURL, user, user_id, likes, comments, downloads, tags, pageURL, webformatURL } = this.props.info.info;
+        //Separating the image tags in an array.
         const arrayTags = tags.split(',');
         return (
-          <section className="ImageDetails">
-            <div className="btn-closeModal" onClick={this.closeModal}>
+          <main className="ImageDetails">
+            <button className="btn-closeModal" onClick={this.closeModal}>
               +
-            </div>
-            <div className="ImageDetails_section">
+            </button>
+            <section className="ImageDetails_section">
               <h1 className="title">Details</h1>
               <div className="section-user">
                 <figure className="Image_Profile">
@@ -26,47 +27,47 @@ export default class ImageDetails extends Component{
                 </figure>
                 <div className="user-info">
                   <h4 className="user">{user}</h4>
-                  <h5># {user_id}</h5>
+                  <h5>#{user_id}</h5>
                 </div>
               </div>
-            </div>
-            <div className="ImageDetails_section">
+            </section>
+            <section className="ImageDetails_section">
               <span>
                 <img
                   className="insight_icon"
                   src="https://i.imgur.com/B1yQvwd.png"
-                />{" "}
+                />
                 {likes} likes
               </span>
               <span>
                 <img
                   className="insight_icon"
                   src="https://i.imgur.com/iIkvD8u.png"
-                />{" "}
+                />
                 {comments} comments
               </span>
               <span>
                 <img
                   className="insight_icon"
                   src="https://i.imgur.com/rvPKVWG.png"
-                />{" "}
+                />
                 {downloads} downloads
               </span>
-            </div>
-            <div className="ImageDetails_section">
+            </section>
+            <section className="ImageDetails_section">
               <h3 className="title">Tags:</h3>
-              {arrayTags.map(tag => (
+              { //Rendering the tags with the map method.
+                arrayTags.map(tag => (
                 <Tag key={arrayTags.indexOf(tag)} tag={tag} />
               ))}
-            </div>
-            <div className="ImageDetails_section">
+            </section>
+            <section className="ImageDetails_section">
               <h3 className="title">Actions:</h3>
               <div>
                 <Button success={true} text="See Original" url={pageURL} />
                 <Button text="Download" url={webformatURL} />
               </div>
-            </div>
-            {console.log(arrayTags)}
+            </section>
             <style jsx>{`
               .ImageDetails {
                 background: #fff;
@@ -111,11 +112,15 @@ export default class ImageDetails extends Component{
               .insight_icon {
                 width: 14px;
                 height: 14px;
+                margin-right: 6px;
               }
 
               .btn-closeModal {
+                border: none;
+                outline: none;
+                background-color: transparent;
                 font-weight: bold;
-                font-size: 60px;
+                font-size: 50px;
                 color: #999;
                 position: absolute;
                 transform: rotate(45deg);
@@ -125,14 +130,15 @@ export default class ImageDetails extends Component{
 
               @media screen and (max-width: 700px) {
                 .ImageDetails {
+                  min-width: 310px;
                   margin-top: -20px;
-                  border-radius: 20px 20px 8px 8px;
+                  border-radius: 20px;
                   width: 100%;
                   margin-bottom: 50px;
                 }
               }
             `}</style>
-          </section>
+          </main>
         );
     }
 }

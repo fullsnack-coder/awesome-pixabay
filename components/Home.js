@@ -1,42 +1,46 @@
+//Components
 import SearchForm from './SearchForm';
 import ImageContainer from './ImageContainer';
 
-export default class extends React.Component{
+/**
+ *  Presentational component created by show all data images. :)
+ */
+export default class Home extends React.Component{
 
     render(){
+
+      const { active, resetSearch, searchData, images, loading, page, pages, handleNextPage, handlePrevPage, query, modalHandler, modal } = this.props;
+
         return (
-          <section className={this.props.active ? "Home active" : "Home"}>
-            <main className={this.props.active ? "Header active" : "Header"}>
+          //Changing the style depending of the ACTIVE prop.
+          <section className={active ? "Home active" : "Home"}>
+            <main className={active ? "Header active" : "Header"}>
               <figure
-                onClick={this.props.handleActive}
-                className={
-                  this.props.active ? "Hero__image active" : "Hero__image"
-                }
+                onClick={resetSearch}
+                className={ active ? "Hero__image active" : "Hero__image" }
               >
                 <img
                   src="https://i.imgur.com/O5ZWxon.jpg"
                   alt="awesome pixabay isotype"
                 />
-                <figcaption></figcaption>
               </figure>
-              <SearchForm searchData={this.props.searchData} />
+              <SearchForm searchData={searchData} />
             </main>
             <ImageContainer
-              images={this.props.images}
-              active={this.props.active}
-              loading={this.props.loading}
-              page={this.props.page}
-              pages={this.props.pages}
-              handleNextPage={this.props.handleNextPage}
-              handlePrevPage={this.props.handlePrevPage}
-              query={this.props.query}
-              activeModal={this.props.activeModal}
-              desactiveModal={this.props.desactiveModal}
-              modal={this.props.modal}
+              images={images}
+              active={active}
+              loading={loading}
+              page={page}
+              pages={pages}
+              handleNextPage={handleNextPage}
+              handlePrevPage={handlePrevPage}
+              query={query}
+              modalHandler={modalHandler}
+              modal={modal}
             />
             <style jsx>{`
               .Home {
-                min-height: 80vh;
+                min-height: 85vh;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
