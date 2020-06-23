@@ -1,6 +1,6 @@
 # 🔥 Awesome Pixabay webapp
 Vanilla version release 🍦
-You can use the app here: [GO!](https://awesome-pixabay-rh6sujghb.now.sh/)
+You can use the app here: [GO!](https://awesome-pixabay.manueldev25.now.sh/)
 
 #### Description:
 It is a minimalist search engine that offers results consuming the Pixabay API. This project was created with the technology of Next.js and React.js.
