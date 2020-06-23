@@ -20,7 +20,7 @@ export default class Home extends React.Component{
                 className={ active ? "Hero__image active" : "Hero__image" }
               >
                 <img
-                  src="https://i.imgur.com/O5ZWxon.jpg"
+                  src="https://i.imgur.com/RBJanpf.jpg"
                   alt="awesome pixabay isotype"
                 />
               </figure>
